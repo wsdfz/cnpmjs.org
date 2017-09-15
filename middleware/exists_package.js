@@ -3,6 +3,7 @@
 var packageService = require('../services/package');
 
 module.exports = function* (next) {
+  console.log(this.params);
   var name = this.params.name || this.params[0];
   var pkg = yield packageService.getLatestModule(name);
   if (pkg) {

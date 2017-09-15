@@ -9,6 +9,7 @@ coverage.html
 dump.rdb
 .DS_Store
 
+
 pids
 logs
 results
@@ -17,6 +18,7 @@ node_modules
 npm-debug.log
 public/dist/
 .dist
+config/index.js
 config/config.js
 backup/*.json
 backup/*.gz

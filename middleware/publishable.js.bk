@@ -23,13 +23,6 @@ module.exports = function *publishable(next) {
   if (this.user.isAdmin) {
     return yield next;
   }
-console.log('P:', this.params);
-
-  var name = this.params.name || this.params[0];
-console.log(name);
-  if (name[0] === '@' && name.indexOf('/' + this.user.name +'_') > 0) {
-    return yield next;
-  }
 
   // private mode, normal user can't publish and unpublish
   if (config.enablePrivate) {
@@ -43,6 +36,8 @@ console.log(name);
 
   // public mode, normal user have permission to publish `scoped package`
   // and only can publish with scopes in `ctx.user.scopes`, default is `config.scopes`
+
+  var name = this.params.name || this.params[0];
 
   // check if is private package list in config
   if (config.privatePackages && config.privatePackages.indexOf(name) !== -1) {
